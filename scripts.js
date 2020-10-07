@@ -3,8 +3,7 @@ for (i=0; i < event.length; i++){
     event[i].countdownEnd = countdown(event[i].dateEnd);
 }
 
-//temporary
-console.log("Wielkość tablicy event: " + event.length);
+//debugging
 console.log(event);
 
 //Generowanie tabeli
@@ -20,7 +19,7 @@ function countdown(date) {
         let dateMillis = date.getTime();
         let dateResult = dateMillis - nowMillis;
         if(dateResult < 0){
-            return '\u2713';
+            return '\u2713'; // \u2713 = ✓
         } else {
             return parseMillisecondsIntoReadableTime(dateResult);
         }
