@@ -1,26 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="icon" href="./Resources/Favicon/favicon-32x32.png"/>
 
-    <title>Event Timers for Mushroom Game - by Tomek</title>
-  </head>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <body>
-    <div class="content">
-      <img src="Resources/Banners/217-SengokuReturnsAsuraWar.jpg" alt="banner"/>
-      <div class="div">
-        <table class="table"></table>
-      </div>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style-bootstrap.css">
+
+    <link rel="icon" href="./Resources/Favicon/favicon-32x32.png" />
+
+    <title>MushroomTimer - AWAKE: Ascend to Mastery (v.218)</title>
+</head>
+
+<body class="bg-dark">
+
+    <div class="container">
+        <div class="text-center">
+            <img src="Resources/Banners/218-AwakeAscendToMastery.jpg" class="img-fluid rounded mt-3 mb-3"
+                alt="AWAKE - Ascend to Mastery">
+        </div>
+
+        <div class="card-columns" id="card-container">
+            <!-- JS required! -->
+            <div class="card text-center text-white bg-secondary">
+                <p>Please enable JavaScript for MushroomTimer to work properly.</p>
+            </div>
+
+            <!--card-->
+            <div class="card text-center text-white bg-secondary">
+                <div class="card-header p-1">
+                    <!--category-->
+                    <p class="card-text">Category</p>
+                </div>
+
+                <div class="card-header bg-secondary">
+                    <h3 class="card-title">
+                        <!--href=section-link-->
+                        <!--section-title-->
+                        <a href="#" class="text-white">Section Title</a>
+                    </h3>
+                    <!--section-description-->
+                    <p class="card-text">Section Description
+                    </p>
+                </div>
+
+                <div class="card-body p-2 pl-5 pr-5">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-secondary p-1 pb-2 mb-3">
+                            <!--item-title-->
+                            <h5 class="card-title mb-1">Item Title</h5>
+                            <!--item-description-->
+                            <p class="card-text mb-1">Item Description</p>
+                            <ul class="list-group list-group-horizontal justify-content-center">
+                                <li class="list-group-item bg-secondary border-0 p-1 ml-4 mr-4">
+                                    &#8614
+                                    <hr class="m-0">
+                                    <!--item-start-->
+                                    Item Start Date
+                                    <hr class="m-0">
+                                    <!--item-start-cd-->
+                                    <span id="itemstartcd">Item Start Countdown</span>
+                                </li>
+                                <li class="list-group-item bg-secondary border-0 p-1 ml-4 mr-4">
+                                    &#8677
+                                    <hr class="m-0">
+                                    <!--item-end-->
+                                    Item End Date
+                                    <hr class="m-0">
+                                    <!--item-end-cd-->
+                                    <span id="itemendcd">Item End Countdown</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Import data from data .js file - change the file if new data is available -->
-    <script src="./Data/217-SengokuReturnsAsuraWar.js"></script>
-    <script src="./scripts.js"></script>
-  </body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <script src="Data/218-AwakeAscendToMastery.js"></script>
+    <script src="./fill-content.js"></script>
+</body>
+
 </html>
