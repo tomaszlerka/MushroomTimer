@@ -214,7 +214,7 @@ let eventList = [
         sectionLink:
             "https://maplestory.nexon.net/news/63065/updated-november-24-v-218-awake-ascend-to-mastery-patch-notes#rock",
         sectionDescription:
-            "Defeat Training Dummies to get up 120 bonus coins every day.",
+            "Defeat Training Dummies to get up 150 bonus coins every day.",
         item: [
             {
                 itemTitle: "",
