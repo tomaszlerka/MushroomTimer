@@ -11,8 +11,21 @@ function createCards() {
     for (let element of eventList) {
         // console.log(element);
 
-        //create a new card with category, sectionTitle, Link and Descrtiption
-        let card = `
+        //initialize card
+        let card = "";
+
+        //add category, sectionTitle, Link and Description
+        //if sectionTitle is empty remove card-header div
+        if (element.category == "") {
+            card = `
+            <div class="card text-center text-white bg-secondary"                 style="border-color: ${element.categoryColor} !important; border-width: 2px;">
+            <div class="card-header bg-secondary">
+                <h3 class="card-title"><a href="${element.sectionLink}" class="text-white">${element.sectionTitle}</a></h3>
+                <p class="card-text">${element.sectionDescription}</p>
+            </div>
+        `;
+        } else {
+            card = `
             <div class="card text-center text-white bg-secondary"                 style="border-color: ${element.categoryColor} !important; border-width: 2px;">
             <div class="card-header p-1">
                 <p class="card-text" style="color: ${element.categoryColor};">${element.category}</p>
@@ -22,6 +35,7 @@ function createCards() {
                 <p class="card-text">${element.sectionDescription}</p>
             </div>
         `;
+        }
 
         //create card body
         let cardBody = `
@@ -40,20 +54,16 @@ function createCards() {
                     <li class="list-group-item bg-secondary border-0 p-1 ml-4 mr-4">
                         &#8614
                         <hr class="m-0">
-                        ${item.itemStart.toLocaleString()}
+                        ${item.itemS.toLocaleString()}
                         <hr class="m-0">
-                        <span id="${item.itemStartCd.toLowerCase()}">${
-                item.itemStartCd
-            }</span>
+                        <span id="${item.itemSCd.toLowerCase()}">${item.itemSCd}</span>
                     </li>
                     <li class="list-group-item bg-secondary border-0 p-1 ml-4 mr-4">
                         &#8677
                         <hr class="m-0">
-                        ${item.itemEnd.toLocaleString()}
+                        ${item.itemE.toLocaleString()}
                         <hr class="m-0">
-                        <span id="${item.itemEndCd.toLowerCase()}">${
-                item.itemEndCd
-            }</span>
+                        <span id="${item.itemECd.toLowerCase()}">${item.itemECd}</span>
                     </li>
                 </ul>
                 </li>
@@ -84,19 +94,15 @@ function clearInitialHTML() {
 function updateTimers() {
     for (let element of eventList) {
         for (let item of element.item) {
-            let startCd = countdown(item.itemStart);
-            let startCdText = document.getElementById(
-                item.itemStartCd.toLowerCase()
-            );
+            let startCd = countdown(item.itemS);
+            let startCdText = document.getElementById(item.itemSCd.toLowerCase());
             //catch exception - only change if exists
             if (startCdText) {
                 startCdText.innerText = startCd;
             }
 
-            let endCd = countdown(item.itemEnd);
-            let endCdText = document.getElementById(
-                item.itemEndCd.toLowerCase()
-            );
+            let endCd = countdown(item.itemE);
+            let endCdText = document.getElementById(item.itemECd.toLowerCase());
             if (endCdText) {
                 endCdText.innerText = endCd;
             }
