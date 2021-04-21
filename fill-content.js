@@ -1,5 +1,6 @@
 // let container = document.getElementsByClassName("container")[0];
 let cardContainer = document.getElementById("card-container");
+let showPastEvents = false;
 
 clearInitialHTML();
 createCards();
@@ -37,16 +38,78 @@ function createCards() {
         `;
         }
 
+        //if sectionLink is empty, don't add an a element
+        if (element.sectionLink == "" || element.sectionLink == undefined) {
+            card = `
+            <div class="card text-center text-white bg-secondary"                 style="border-color: ${element.categoryColor} !important; border-width: 2px;">
+            <div class="card-header p-1">
+                <p class="card-text" style="color: ${element.categoryColor};">${element.category}</p>
+            </div>
+            <div class="card-header bg-secondary">
+                <h3 class="card-title">${element.sectionTitle}</h3>
+                <p class="card-text">${element.sectionDescription}</p>
+            </div>
+        `;
+        } else {
+            card = `
+            <div class="card text-center text-white bg-secondary"                 style="border-color: ${element.categoryColor} !important; border-width: 2px;">
+            <div class="card-header p-1">
+                <p class="card-text" style="color: ${element.categoryColor};">${element.category}</p>
+            </div>
+            <div class="card-header bg-secondary">
+                <h3 class="card-title"><a href="${element.sectionLink}" class="text-white">${element.sectionTitle}</a></h3>
+                <p class="card-text">${element.sectionDescription}</p>
+            </div>
+        `;
+        }
+
         //create card body
         let cardBody = `
             <div class="card-body p-2 pl-5 pr-5">
             <ul class="list-group list-group-flush">
         `;
+
+        //to track whether any items exist in particular card's body
+        //important - if items are not ending in chronological order && one that comes later is finished (for example - 01.01, 04.01, 02.01), the whole card will not appear despite the middle item not being finished yet
+        let itemsExist = false;
+
         //iterate over each item in section
         for (let item of element.item) {
-            // console.log(item);
+            console.log(item);
 
-            let cardBodyItem = `
+            //if past item end date && no showing of past events, don't add item to card
+            if (countdown(item.itemE) != "-" && countdown(item.itemE) == "\u2713" && !showPastEvents) {
+                //if item not added to card body then it doesn't exist
+                itemsExist = false;
+                continue;
+            }
+
+            //if item added to card body then it does exist
+            itemsExist = true;
+
+            //automatically set start & end ID of items (takes section name if item name doesn't exist)
+            let startID;
+            let endID;
+            if (item.itemTitle == "") {
+                startID = element.sectionTitle.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+                startID += "-s";
+                console.log(startID);
+                endID = element.sectionTitle.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+                endID += "-e";
+                console.log(endID);
+            } else {
+                startID = item.itemTitle.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+                startID += "-s";
+                console.log(startID);
+                endID = item.itemTitle.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+                endID += "-e";
+                console.log(endID);
+            }
+
+            //if item link is empty don't add an a element
+            let cardBodyItem;
+            if (item.itemLink == undefined && item.itemLink == "") {
+                cardBodyItem = `
                 <li class="list-group-item bg-secondary p-1 pb-2 mb-3">
                 <h5 class="card-title mb-1">${item.itemTitle}</h5>
                 <p class="card-text mb-1">${item.itemDescription}</p>
@@ -56,19 +119,50 @@ function createCards() {
                         <hr class="m-0">
                         ${item.itemS.toLocaleString()}
                         <hr class="m-0">
-                        <span id="${item.itemSCd.toLowerCase()}">${item.itemSCd}</span>
+                        <span id="${startID}"></span>
                     </li>
                     <li class="list-group-item bg-secondary border-0 p-1 ml-4 mr-4">
                         &#8677
                         <hr class="m-0">
                         ${item.itemE.toLocaleString()}
                         <hr class="m-0">
-                        <span id="${item.itemECd.toLowerCase()}">${item.itemECd}</span>
+                        <span id="${endID}"></span>
                     </li>
                 </ul>
                 </li>
             `;
+            } else {
+                cardBodyItem = `
+                <li class="list-group-item bg-secondary p-1 pb-2 mb-3">
+                <h5 class="card-title mb-1"><a href="${item.itemLink}" class="text-white">${item.itemTitle}</a></h5>
+                <p class="card-text mb-1">${item.itemDescription}</p>
+                <ul class="list-group list-group-horizontal justify-content-center">
+                    <li class="list-group-item bg-secondary border-0 p-1 ml-4 mr-4">
+                        &#8614
+                        <hr class="m-0">
+                        ${item.itemS.toLocaleString()}
+                        <hr class="m-0">
+                        <span id="${startID}"></span>
+                    </li>
+                    <li class="list-group-item bg-secondary border-0 p-1 ml-4 mr-4">
+                        &#8677
+                        <hr class="m-0">
+                        ${item.itemE.toLocaleString()}
+                        <hr class="m-0">
+                        <span id="${endID}"></span>
+                    </li>
+                </ul>
+                </li>
+            `;
+            }
+
             cardBody += cardBodyItem;
+        }
+
+        //if no items && no showing of past events, don't add card
+        if (!itemsExist && !showPastEvents) {
+            console.log("a");
+            continue;
         }
 
         //finish up card body
@@ -91,18 +185,47 @@ function clearInitialHTML() {
     cardContainer.innerHTML = "";
 }
 
+function togglePastEvents() {
+    let btn = document.getElementById("btn-toggle-past-events");
+
+    if (btn.innerHTML == "Show past events") {
+        btn.innerHTML = "Hide past events";
+    } else if (btn.innerHTML == "Hide past events") {
+        btn.innerHTML = "Show past events";
+    }
+
+    showPastEvents = !showPastEvents;
+    clearInitialHTML();
+    createCards();
+    updateTimers();
+}
+
 function updateTimers() {
     for (let element of eventList) {
         for (let item of element.item) {
+            let startID;
+            let endID;
+            if (item.itemTitle == "") {
+                startID = element.sectionTitle.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+                startID += "-s";
+                endID = element.sectionTitle.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+                endID += "-e";
+            } else {
+                startID = item.itemTitle.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+                startID += "-s";
+                endID = item.itemTitle.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+                endID += "-e";
+            }
+
             let startCd = countdown(item.itemS);
-            let startCdText = document.getElementById(item.itemSCd.toLowerCase());
+            let startCdText = document.getElementById(startID);
             //catch exception - only change if exists
             if (startCdText) {
                 startCdText.innerText = startCd;
             }
 
             let endCd = countdown(item.itemE);
-            let endCdText = document.getElementById(item.itemECd.toLowerCase());
+            let endCdText = document.getElementById(endID);
             if (endCdText) {
                 endCdText.innerText = endCd;
             }
