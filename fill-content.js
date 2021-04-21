@@ -1,5 +1,6 @@
 // let container = document.getElementsByClassName("container")[0];
 let cardContainer = document.getElementById("card-container");
+let showPastEvents = false;
 
 clearInitialHTML();
 createCards();
@@ -42,9 +43,43 @@ function createCards() {
             <div class="card-body p-2 pl-5 pr-5">
             <ul class="list-group list-group-flush">
         `;
+
+        //to track whether any items exist in particular card's body
+        //important - if items are not ending in chronological order && one that comes later is finished (for example - 01.01, 04.01, 02.01), the whole card will not appear despite the middle item not being finished yet
+        let itemsExist = false;
+
         //iterate over each item in section
         for (let item of element.item) {
-            // console.log(item);
+            console.log(item);
+
+            //if past item end date && no showing of past events, don't add item to card
+            if (countdown(item.itemE) != "-" && countdown(item.itemE) == "\u2713" && !showPastEvents) {
+                //if item not added to card body then it doesn't exist
+                itemsExist = false;
+                continue;
+            }
+
+            //if item added to card body then it does exist
+            itemsExist = true;
+
+            //automatically set start & end ID of items (takes section name if item name doesn't exist)
+            let startID;
+            let endID;
+            if (item.itemTitle == "") {
+                startID = element.sectionTitle.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+                startID += "-s";
+                console.log(startID);
+                endID = element.sectionTitle.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+                endID += "-e";
+                console.log(endID);
+            } else {
+                startID = item.itemTitle.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+                startID += "-s";
+                console.log(startID);
+                endID = item.itemTitle.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+                endID += "-e";
+                console.log(endID);
+            }
 
             let cardBodyItem = `
                 <li class="list-group-item bg-secondary p-1 pb-2 mb-3">
@@ -56,19 +91,26 @@ function createCards() {
                         <hr class="m-0">
                         ${item.itemS.toLocaleString()}
                         <hr class="m-0">
-                        <span id="${item.itemSCd.toLowerCase()}">${item.itemSCd}</span>
+                        <span id="${startID}"></span>
                     </li>
                     <li class="list-group-item bg-secondary border-0 p-1 ml-4 mr-4">
                         &#8677
                         <hr class="m-0">
                         ${item.itemE.toLocaleString()}
                         <hr class="m-0">
-                        <span id="${item.itemECd.toLowerCase()}">${item.itemECd}</span>
+                        <span id="${endID}"></span>
                     </li>
                 </ul>
                 </li>
             `;
+
             cardBody += cardBodyItem;
+        }
+
+        //if no items && no showing of past events, don't add card
+        if (!itemsExist && !showPastEvents) {
+            console.log("a");
+            continue;
         }
 
         //finish up card body
@@ -91,18 +133,47 @@ function clearInitialHTML() {
     cardContainer.innerHTML = "";
 }
 
+function togglePastEvents() {
+    let btn = document.getElementById("btn-toggle-past-events");
+
+    if (btn.innerHTML == "Show past events") {
+        btn.innerHTML = "Hide past events";
+    } else if (btn.innerHTML == "Hide past events") {
+        btn.innerHTML = "Show past events";
+    }
+
+    showPastEvents = !showPastEvents;
+    clearInitialHTML();
+    createCards();
+    updateTimers();
+}
+
 function updateTimers() {
     for (let element of eventList) {
         for (let item of element.item) {
+            let startID;
+            let endID;
+            if (item.itemTitle == "") {
+                startID = element.sectionTitle.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+                startID += "-s";
+                endID = element.sectionTitle.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+                endID += "-e";
+            } else {
+                startID = item.itemTitle.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+                startID += "-s";
+                endID = item.itemTitle.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+                endID += "-e";
+            }
+
             let startCd = countdown(item.itemS);
-            let startCdText = document.getElementById(item.itemSCd.toLowerCase());
+            let startCdText = document.getElementById(startID);
             //catch exception - only change if exists
             if (startCdText) {
                 startCdText.innerText = startCd;
             }
 
             let endCd = countdown(item.itemE);
-            let endCdText = document.getElementById(item.itemECd.toLowerCase());
+            let endCdText = document.getElementById(endID);
             if (endCdText) {
                 endCdText.innerText = endCd;
             }
