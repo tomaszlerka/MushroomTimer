@@ -38,6 +38,31 @@ function createCards() {
         `;
         }
 
+        //if sectionLink is empty, don't add an a element
+        if (element.sectionLink == "" || element.sectionLink == undefined) {
+            card = `
+            <div class="card text-center text-white bg-secondary"                 style="border-color: ${element.categoryColor} !important; border-width: 2px;">
+            <div class="card-header p-1">
+                <p class="card-text" style="color: ${element.categoryColor};">${element.category}</p>
+            </div>
+            <div class="card-header bg-secondary">
+                <h3 class="card-title">${element.sectionTitle}</h3>
+                <p class="card-text">${element.sectionDescription}</p>
+            </div>
+        `;
+        } else {
+            card = `
+            <div class="card text-center text-white bg-secondary"                 style="border-color: ${element.categoryColor} !important; border-width: 2px;">
+            <div class="card-header p-1">
+                <p class="card-text" style="color: ${element.categoryColor};">${element.category}</p>
+            </div>
+            <div class="card-header bg-secondary">
+                <h3 class="card-title"><a href="${element.sectionLink}" class="text-white">${element.sectionTitle}</a></h3>
+                <p class="card-text">${element.sectionDescription}</p>
+            </div>
+        `;
+        }
+
         //create card body
         let cardBody = `
             <div class="card-body p-2 pl-5 pr-5">
@@ -81,12 +106,12 @@ function createCards() {
                 console.log(endID);
             }
 
-            //if item has link then add an a element, otherwise don't add an a element
+            //if item link is empty don't add an a element
             let cardBodyItem;
-            if (item.itemLink != undefined) {
+            if (item.itemLink == undefined && item.itemLink == "") {
                 cardBodyItem = `
                 <li class="list-group-item bg-secondary p-1 pb-2 mb-3">
-                <h5 class="card-title mb-1"><a href="${item.itemLink}" class="text-white">${item.itemTitle}</a></h5>
+                <h5 class="card-title mb-1">${item.itemTitle}</h5>
                 <p class="card-text mb-1">${item.itemDescription}</p>
                 <ul class="list-group list-group-horizontal justify-content-center">
                     <li class="list-group-item bg-secondary border-0 p-1 ml-4 mr-4">
@@ -109,7 +134,7 @@ function createCards() {
             } else {
                 cardBodyItem = `
                 <li class="list-group-item bg-secondary p-1 pb-2 mb-3">
-                <h5 class="card-title mb-1">${item.itemTitle}</h5>
+                <h5 class="card-title mb-1"><a href="${item.itemLink}" class="text-white">${item.itemTitle}</a></h5>
                 <p class="card-text mb-1">${item.itemDescription}</p>
                 <ul class="list-group list-group-horizontal justify-content-center">
                     <li class="list-group-item bg-secondary border-0 p-1 ml-4 mr-4">
