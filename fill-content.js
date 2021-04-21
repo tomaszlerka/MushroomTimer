@@ -81,7 +81,33 @@ function createCards() {
                 console.log(endID);
             }
 
-            let cardBodyItem = `
+            //if item has link then add an a element, otherwise don't add an a element
+            let cardBodyItem;
+            if (item.itemLink != undefined) {
+                cardBodyItem = `
+                <li class="list-group-item bg-secondary p-1 pb-2 mb-3">
+                <h5 class="card-title mb-1"><a href="${item.itemLink}" class="text-white">${item.itemTitle}</a></h5>
+                <p class="card-text mb-1">${item.itemDescription}</p>
+                <ul class="list-group list-group-horizontal justify-content-center">
+                    <li class="list-group-item bg-secondary border-0 p-1 ml-4 mr-4">
+                        &#8614
+                        <hr class="m-0">
+                        ${item.itemS.toLocaleString()}
+                        <hr class="m-0">
+                        <span id="${startID}"></span>
+                    </li>
+                    <li class="list-group-item bg-secondary border-0 p-1 ml-4 mr-4">
+                        &#8677
+                        <hr class="m-0">
+                        ${item.itemE.toLocaleString()}
+                        <hr class="m-0">
+                        <span id="${endID}"></span>
+                    </li>
+                </ul>
+                </li>
+            `;
+            } else {
+                cardBodyItem = `
                 <li class="list-group-item bg-secondary p-1 pb-2 mb-3">
                 <h5 class="card-title mb-1">${item.itemTitle}</h5>
                 <p class="card-text mb-1">${item.itemDescription}</p>
@@ -103,6 +129,7 @@ function createCards() {
                 </ul>
                 </li>
             `;
+            }
 
             cardBody += cardBodyItem;
         }
