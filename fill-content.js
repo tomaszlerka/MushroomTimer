@@ -108,7 +108,7 @@ function createCards() {
 
             //if item link is empty don't add an a element
             let cardBodyItem;
-            if (item.itemLink == undefined && item.itemLink == "") {
+            if (item.itemLink == "" || item.itemLink == undefined) {
                 cardBodyItem = `
                 <li class="list-group-item bg-secondary p-1 pb-2 mb-3">
                 <h5 class="card-title mb-1">${item.itemTitle}</h5>
