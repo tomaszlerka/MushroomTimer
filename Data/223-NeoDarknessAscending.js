@@ -226,8 +226,8 @@ let eventList = [
             {
                 itemTitle: "",
                 itemDescription: "",
-                itemS: new Date("2021/06/23 12:00 AM UTC"),
-                itemE: "",
+                itemS: "",
+                itemE: new Date("2021/06/23 12:00 AM UTC"),
             },
         ],
     },
