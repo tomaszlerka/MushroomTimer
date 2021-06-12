@@ -273,37 +273,37 @@ let eventList = [
         item: [
             {
                 itemTitle: "Week 1 - June 13",
-                itemDescription: "2x EXP from Pollo & Fritto, <br> 2x EXP from Inferno Wolf, <br> Double Neo Stones & Cores",
+                itemDescription: "2x EXP from Pollo & Fritto, <br> 2x EXP from Inferno Wolf, <br> Double Neo Stones & Gems",
                 itemS: new Date("2021/06/13 12:00 AM UTC"),
                 itemE: new Date("2021/06/13 11:59 PM UTC"),
             },
             {
                 itemTitle: "Week 2 - June 20",
-                itemDescription: "50% extra Monster Park EXP, <br> 5x chance for Magnificent Soul, <br> Double Neo Stones & Cores",
+                itemDescription: "50% extra Monster Park EXP, <br> 5x chance for Magnificent Soul, <br> Double Neo Stones & Gems",
                 itemS: new Date("2021/06/20 12:00 AM UTC"),
                 itemE: new Date("2021/06/20 11:59 PM UTC"),
             },
             {
                 itemTitle: "Week 3 - June 27",
-                itemDescription: "5, 10, 15 Star Forcing, <br> 30 Arcane Symbol Coupons, <br> 50% off Spell Trace, <br> Double Neo Stones & Cores",
+                itemDescription: "5, 10, 15 Star Forcing, <br> 30 Arcane Symbol Coupons, <br> 50% off Spell Trace, <br> Double Neo Stones & Gems",
                 itemS: new Date("2021/06/27 12:00 AM UTC"),
                 itemE: new Date("2021/06/27 11:59 PM UTC"),
             },
             {
                 itemTitle: "Week 4 - July 4",
-                itemDescription: "2x Monster Collection chance, <br> 50% honor rerolls, <br> Double Neo Stones & Cores",
+                itemDescription: "2x Monster Collection chance, <br> 50% honor rerolls, <br> Double Neo Stones & Gems",
                 itemS: new Date("2021/07/04 12:00 AM UTC"),
                 itemE: new Date("2021/07/04 11:59 PM UTC"),
             },
             {
                 itemTitle: "Week 5 - July 11",
-                itemDescription: "30% off Star Forcing, <br> Double Neo Stones & Cores",
+                itemDescription: "30% off Star Forcing, <br> Double Neo Stones & Gems",
                 itemS: new Date("2021/07/11 12:00 AM UTC"),
                 itemE: new Date("2021/07/11 11:59 PM UTC"),
             },
             {
                 itemTitle: "Week 6 - July 18",
-                itemDescription: "50% extra Monster Park EXP, <br> Double Sweet 16 Coins, <br> Double VIP Membership rank up",
+                itemDescription: "50% extra Monster Park EXP, <br> Double Neo Stones & Gems",
                 itemS: new Date("2021/07/18 12:00 AM UTC"),
                 itemE: new Date("2021/07/18 11:59 PM UTC"),
             },
