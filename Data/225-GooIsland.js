@@ -20,152 +20,146 @@ let schema = [
 let eventList = [
     //Category: Main Events
     {
-        category: "NEO",
+        category: "Goo Island Getaway",
         categoryColor: "#80f0ff",
-        sectionTitle: "Neo Castle",
+        sectionTitle: "Goo Island",
         sectionLink:
-            "https://maplestory.nexon.net/news/67904/v-224-neo-light-s-wrath-patch-notes#castle",
-        sectionDescription:
-            "Participate in the Neo Castle events to collect Neo Stones, Neo Gems, and Neo Cores!",
+            "https://maplestory.nexon.net/news/68486/updated-august-27-v-225-goo-island-getaway-patch-notes#goo",
+        sectionDescription: "",
         item: [
             {
                 itemTitle: "",
                 itemDescription: "",
-                itemS: new Date("2021/06/10 00:00 UTC"),
-                itemE: new Date("2021/08/24 11:59 PM UTC"),
+                itemS: new Date("2021/08/26 00:00 UTC"),
+                itemE: new Date("2021/09/21 11:59 PM UTC"),
             },
         ],
     },
     {
-        category: "NEO",
+        category: "Goo Island Getaway",
         categoryColor: "#80f0ff",
-        sectionTitle: "Neo Crystal Challenge",
+        sectionTitle: "Blessing of Goo",
         sectionLink:
-            "https://maplestory.nexon.net/news/67904/v-224-neo-light-s-wrath-patch-notes#challenge",
-        sectionDescription:
-            "Destroy 12 stages of mobs and bosses over 2 minutes to get up to 1500 Crystal Points per day, which can be used to buy Growth Potions.",
+            "https://maplestory.nexon.net/news/68486/updated-august-27-v-225-goo-island-getaway-patch-notes#blessing",
+        sectionDescription: "",
         item: [
             {
                 itemTitle: "",
                 itemDescription: "",
-                itemS: new Date("2021/06/10 00:00 UTC"),
-                itemE: new Date("2021/08/24 11:59 PM UTC"),
+                itemS: new Date("2021/08/26 00:00 UTC"),
+                itemE: new Date("2021/09/21 11:59 PM UTC"),
             },
         ],
     },
     {
-        category: "NEO",
+        category: "Goo Island Getaway",
         categoryColor: "#80f0ff",
-        sectionTitle: "Leo's Travel Journal",
+        sectionTitle: "Fruitapalooza",
         sectionLink:
-            "https://maplestory.nexon.net/news/67904/v-224-neo-light-s-wrath-patch-notes#journal",
-        sectionDescription: "Weekly challenges for Neo Stones.",
+            "https://maplestory.nexon.net/news/68486/updated-august-27-v-225-goo-island-getaway-patch-notes#fruit",
+        sectionDescription: "",
         item: [
             {
                 itemTitle: "",
                 itemDescription: "",
-                itemS: new Date("2021/06/10 00:00 UTC"),
-                itemE: new Date("2021/08/24 11:59 PM UTC"),
+                itemS: new Date("2021/08/26 00:00 UTC"),
+                itemE: new Date("2021/09/21 11:59 PM UTC"),
             },
         ],
     },
     {
-        category: "NEO",
+        category: "Goo Island Getaway",
         categoryColor: "#80f0ff",
-        sectionTitle: "Neo Stones Capping",
-        sectionLink: "",
+        sectionTitle: "Goo Battle",
+        sectionLink:
+            "https://maplestory.nexon.net/news/68486/updated-august-27-v-225-goo-island-getaway-patch-notes#battle",
         sectionDescription: "",
         item: [
             {
-                itemTitle: "Renee and the Magic Bell",
+                itemTitle: "",
                 itemDescription: "",
-                itemLink:
-                    "https://maplestory.nexon.net/news/67904/v-224-neo-light-s-wrath-patch-notes#bell",
-                itemS: new Date("2021/07/22 00:00 UTC"),
-                itemE: new Date("2021/08/24 11:59 PM UTC"),
+                itemS: new Date("2021/08/26 00:00 UTC"),
+                itemE: new Date("2021/09/21 11:59 PM UTC"),
             },
         ],
     },
     {
-        category: "NEO",
+        category: "Goo Island Getaway",
         categoryColor: "#80f0ff",
-        sectionTitle: "Neo Gems Minigames",
-        sectionLink: "",
+        sectionTitle: "Dye Hunt",
+        sectionLink:
+            "https://maplestory.nexon.net/news/68486/updated-august-27-v-225-goo-island-getaway-patch-notes#dye",
         sectionDescription: "",
         item: [
             {
-                itemTitle: "Supernatural Yut",
+                itemTitle: "",
                 itemDescription: "",
-                itemLink:
-                    "https://maplestory.nexon.net/news/67904/v-224-neo-light-s-wrath-patch-notes#yut",
-                itemS: new Date("2021/07/22 00:00 UTC"),
-                itemE: new Date("2021/08/24 11:59 PM UTC"),
-            },
-            {
-                itemTitle: "Rainbow Rush",
-                itemDescription: "",
-                itemLink:
-                    "https://maplestory.nexon.net/news/67904/v-224-neo-light-s-wrath-patch-notes#rush",
-                itemS: new Date("2021/06/10 12:00 AM UTC"),
-                itemE: new Date("2021/08/24 11:59 PM UTC"),
-            },
-            {
-                itemTitle: "Castle Column",
-                itemDescription: "",
-                itemLink:
-                    "https://maplestory.nexon.net/news/67904/v-224-neo-light-s-wrath-patch-notes#column",
-                itemS: new Date("2021/06/30 12:00 AM UTC"),
-                itemE: new Date("2021/08/24 11:59 PM UTC"),
-            },
-            {
-                itemTitle: "Thinking of You",
-                itemDescription: "",
-                itemLink:
-                    "https://maplestory.nexon.net/news/67904/v-224-neo-light-s-wrath-patch-notes#think",
-                itemS: new Date("2021/07/22 00:00 UTC"),
-                itemE: new Date("2021/08/24 11:59 PM UTC"),
+                itemS: new Date("2021/08/26 00:00 UTC"),
+                itemE: new Date("2021/09/21 11:59 PM UTC"),
             },
         ],
     },
     {
-        category: "NEO",
+        category: "Goo Island Getaway",
         categoryColor: "#80f0ff",
-        sectionTitle: "Neo Shops",
-        sectionLink: "",
+        sectionTitle: "Giga-Goo Assault",
+        sectionLink:
+            "https://maplestory.nexon.net/news/68486/updated-august-27-v-225-goo-island-getaway-patch-notes#giga",
         sectionDescription: "",
         item: [
             {
-                itemTitle: "Neo Stone Shop",
-                itemDescription: "You can earn Neo Stones by point capping.",
-                itemLink:
-                    "https://maplestory.nexon.net/news/67904/v-224-neo-light-s-wrath-patch-notes#stone",
-                itemS: new Date("2021/06/10 00:00 UTC"),
-                itemE: new Date("2021/08/29 11:59 PM UTC"),
-            },
-            {
-                itemTitle: "Neo Gem Shop",
-                itemDescription: "You can earn Neo Gems by playing mini-games.",
-                itemLink:
-                    "https://maplestory.nexon.net/news/67904/v-224-neo-light-s-wrath-patch-notes#gem",
-                itemS: new Date("2021/06/10 00:00 UTC"),
-                itemE: new Date("2021/08/29 11:59 PM UTC"),
-            },
-            {
-                itemTitle: "Neo Core Shop",
-                itemDescription:
-                    "You can earn Neo Cores by defeating weekly bosses.",
-                itemLink:
-                    "https://maplestory.nexon.net/news/67904/v-224-neo-light-s-wrath-patch-notes#core",
-                itemS: new Date("2021/06/10 00:00 UTC"),
-                itemE: new Date("2021/08/29 11:59 PM UTC"),
-            },
-            {
-                itemTitle: "Neo Meso Shop",
+                itemTitle: "",
                 itemDescription: "",
-                itemLink:
-                    "https://maplestory.nexon.net/news/67904/v-224-neo-light-s-wrath-patch-notes#meso",
-                itemS: new Date("2021/06/10 00:00 UTC"),
-                itemE: new Date("2021/08/29 11:59 PM UTC"),
+                itemS: new Date("2021/08/26 00:00 UTC"),
+                itemE: new Date("2021/09/21 11:59 PM UTC"),
+            },
+        ],
+    },
+    {
+        category: "Goo Island Getaway",
+        categoryColor: "#80f0ff",
+        sectionTitle: "Goo Ruins Exploration",
+        sectionLink:
+            "https://maplestory.nexon.net/news/68486/updated-august-27-v-225-goo-island-getaway-patch-notes#ruins",
+        sectionDescription: "",
+        item: [
+            {
+                itemTitle: "",
+                itemDescription: "",
+                itemS: new Date("2021/08/26 00:00 UTC"),
+                itemE: new Date("2021/09/21 11:59 PM UTC"),
+            },
+        ],
+    },
+    {
+        category: "Goo Island Getaway",
+        categoryColor: "#80f0ff",
+        sectionTitle: "Tranquility Falls",
+        sectionLink:
+            "https://maplestory.nexon.net/news/68486/updated-august-27-v-225-goo-island-getaway-patch-notes#falls",
+        sectionDescription: "",
+        item: [
+            {
+                itemTitle: "",
+                itemDescription: "",
+                itemS: new Date("2021/08/26 00:00 UTC"),
+                itemE: new Date("2021/09/21 11:59 PM UTC"),
+            },
+        ],
+    },
+    {
+        category: "Goo Island Getaway",
+        categoryColor: "#80f0ff",
+        sectionTitle: "Goo Gachapon",
+        sectionLink:
+            "https://maplestory.nexon.net/news/68486/updated-august-27-v-225-goo-island-getaway-patch-notes#gacha",
+        sectionDescription: "",
+        item: [
+            {
+                itemTitle: "",
+                itemDescription: "",
+                itemS: new Date("2021/08/26 00:00 UTC"),
+                itemE: new Date("2021/09/21 11:59 PM UTC"),
             },
         ],
     },
