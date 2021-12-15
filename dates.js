@@ -58,7 +58,16 @@ function formatData() {
     console.log(dateFrom);
 
     // put in current year - to be fixed if they specify a year in the future
-    output += new Date().getFullYear();
+    if (
+        checkMonth(dateFrom[1]) == "01" ||
+        checkMonth(dateFrom[1]) == "02" ||
+        checkMonth(dateFrom[1]) == "03"
+    ) {
+        output += new Date().getFullYear() + 1;
+    } else {
+        output += new Date().getFullYear();
+    }
+    //output += new Date().getFullYear();
     output += "/";
 
     // if length = 6, then it says after maintenance - therefore +1 day and set time to 00:00 UTC
