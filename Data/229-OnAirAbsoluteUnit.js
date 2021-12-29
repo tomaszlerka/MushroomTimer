@@ -450,13 +450,7 @@ let eventList = [
             "Increased spell trace success rate during specified 2-hour windows.",
         item: [
             {
-                itemTitle: "Part 1",
-                itemDescription: "",
-                itemS: new Date("2021/12/24 08:00 AM UTC"),
-                itemE: new Date("2021/12/26 04:00 AM UTC"),
-            },
-            {
-                itemTitle: "Part 2",
+                itemTitle: "",
                 itemDescription: "",
                 itemS: new Date("2022/01/28 08:00 AM UTC"),
                 itemE: new Date("2022/01/30 04:00 AM UTC"),
